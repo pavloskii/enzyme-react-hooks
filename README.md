@@ -29,6 +29,7 @@ it("should increment counter", () => {
 
 ## Credits
 [React Hooks Testing Library](https://github.com/testing-library/react-hooks-testing-library)
+
 [Kent C. Dodds' Epic React Workshop](https://epicreact.dev/)
 
 ## License
