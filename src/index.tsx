@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { mount } from "enzyme";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function renderHook<THookProps, THookReturn>(
+  hook: (props: THookProps) => THookReturn,
+  options: {
+    initialProps?: THookProps;
+  } = {}
+) {
+  const result: { current: THookReturn } = { current: null! };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  const HookWrapper: React.FC<THookProps> = (wrapperProps: THookProps) => {
+    result.current = hook({ ...wrapperProps });
+    return null;
+  };
+
+  const wrapper = mount(
+    <HookWrapper {...(options.initialProps ?? ({} as THookProps))} />
+  );
+
+  const rerender = (newProps: THookProps) => {
+    wrapper.setProps(newProps);
+  };
+
+  return { result, rerender };
+}
+
+export { renderHook };
