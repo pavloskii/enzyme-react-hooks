@@ -51,7 +51,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "build-watch": "rollup -c -w"
+    "build-watch": "rollup -c -w",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [

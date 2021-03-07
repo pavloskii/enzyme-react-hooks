@@ -2,7 +2,7 @@
 
 > React hooks testing utils for Enzyme
 
-[![NPM](https://img.shields.io/npm/v/enzyme-react-hooks.svg)](https://www.npmjs.com/package/enzyme-react-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/enzyme-react-hooks.svg)](https://www.npmjs.com/package/enzyme-react-hooks) [![MIT License](https://img.shields.io/npm/v/enzyme-react-hooks.svg?style=flat-square)](https://github.com/pavloskii/enzyme-react-hooks/blob/main/LICENSE)
 
 ## Install
 
@@ -24,6 +24,10 @@ it("should increment counter", () => {
   expect(result.current.count).toBe(1);
 });
 ```
+
+## Credits
+[react-hooks-testing-library](https://github.com/testing-library/react-hooks-testing-library)
+[Kent C. Dodds' Epic React Workshop](https://epicreact.dev/)
 
 ## License
 
