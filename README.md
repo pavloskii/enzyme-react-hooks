@@ -15,6 +15,7 @@ npm install --save-dev enzyme-react-hooks
 ## Usage
 
 ```tsx
+import { act } from "react-dom/test-utils";
 import { renderHook } from "enzyme-react-hooks";
 import { useCounter } from "./useCounter";
 
