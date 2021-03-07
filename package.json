@@ -1,7 +1,7 @@
 {
   "name": "enzyme-react-hooks",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React hooks testing utils for Enzyme",
   "author": "pavloskii",
   "license": "MIT",
