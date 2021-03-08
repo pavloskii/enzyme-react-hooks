@@ -8,7 +8,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("renderHook tests", () => {
   describe("custom hook", () => {
-    function useCounter({ step = 1 }) {
+    function useCounter(options: { step: number } | undefined) {
+      const { step = 1 } = options ?? {};
       const [count, setCount] = useState(0);
 
       const increment = useCallback(() => setCount((c) => c + step), [step]);

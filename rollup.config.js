@@ -3,7 +3,8 @@ import babel from "@rollup/plugin-babel";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import del from "rollup-plugin-delete";
 import pkg from "./package.json";
-import typescript from 'rollup-plugin-typescript2';
+import typescript from "rollup-plugin-typescript2";
+import copy from "rollup-plugin-copy";
 
 export default {
   input: pkg.source,
@@ -12,6 +13,9 @@ export default {
     { file: pkg.module, format: "esm", sourcemap: true }
   ],
   plugins: [
+    copy({
+      targets: [{ src: "./LICENSE", dest: "dist" }]
+    }),
     peerDepsExternal(),
     babel({
       exclude: "node_modules/**"
@@ -19,5 +23,5 @@ export default {
     del({ targets: ["dist/*"] }),
     typescript()
   ],
-  external: [...Object.keys(pkg.peerDependencies || {}), "tslib"]
+  external: [...Object.keys(pkg.peerDependencies || {})]
 };

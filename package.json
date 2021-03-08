@@ -1,7 +1,7 @@
 {
   "name": "enzyme-react-hooks",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "React hooks testing utils for Enzyme",
   "author": "pavloskii",
   "license": "MIT",
@@ -44,6 +44,7 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
     "rollup": "^2.40.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.30.0",
@@ -52,7 +53,8 @@
   "scripts": {
     "build": "rollup -c",
     "build-watch": "rollup -c -w",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "i:example": "cd example && npm i"
   },
   "eslintConfig": {
     "extends": [

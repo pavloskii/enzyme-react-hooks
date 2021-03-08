@@ -9,17 +9,17 @@ function renderHook<THookProps, THookReturn>(
 ) {
   const result: { current: THookReturn } = { current: null! };
 
-  const HookWrapper: React.FC<THookProps> = (wrapperProps: THookProps) => {
-    result.current = hook({ ...wrapperProps });
+  const HookWrapper: React.FC<{ hookProps: THookProps | undefined }> = (
+    props
+  ) => {
+    result.current = hook(props.hookProps as THookProps);
     return null;
   };
 
-  const wrapper = mount(
-    <HookWrapper {...(options.initialProps ?? ({} as THookProps))} />
-  );
+  const wrapper = mount(<HookWrapper hookProps={options.initialProps} />);
 
   const rerender = (newProps: THookProps) => {
-    wrapper.setProps(newProps);
+    wrapper.setProps({ hookProps: newProps });
   };
 
   return { result, rerender };
